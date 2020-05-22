@@ -20,9 +20,6 @@ sources+="$ZSH_CONFIG/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 systemFile=`uname -s | tr "[:upper:]" "[:lower:]"`
 sources+="$ZSH_CONFIG/$systemFile.zsh"
 
-# private configuration
-sources+="$ZSH_CONFIG/private.zsh"
-
 # completion config needs to be after system config
 sources+="$ZSH_CONFIG/completion.zsh"
 

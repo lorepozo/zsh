@@ -1,13 +1,15 @@
-# athena
-export athena='athena.dialup.mit.edu'
-export web='lucasem.com'
-export mail="mail.$web"
-export xmpp="xmpp.$web"
-export compute="compute.$web"
-export rig="rig.$web"
+# vi
+local nvim=`command -v nvim`
+if [ $? -eq 0 ] >/dev/null
+then
+  export EDITOR=$nvim
+else
+  export EDITOR=`command -v vim`
+fi
 
 # my bins
 export PATH=$HOME/bin:$PATH
+export PATH=$PATH:/usr/local/bin
 
 # golang
 export GOROOT=/usr/local/go

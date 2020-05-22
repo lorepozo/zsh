@@ -36,3 +36,5 @@ zstyle ':completion:hist-complete:*' completer _history
 bindkey '^X^X' hist-complete
 
 setopt AUTO_CD EXTENDED_GLOB NOMATCH BEEP TRANSIENT_RPROMPT COMPLETE_IN_WORD AUTO_PUSHD PUSHD_IGNORE_DUPS clobber
+
+set -o emacs

@@ -20,10 +20,16 @@ alias ..=' cd ..'
 alias ...=' cd ../..'
 alias ....=' cd ../../..'
 
-# misc
-alias grep='grep --color=auto'
-alias l=' ls -l'
-less=`command -v less`
+# basics
+if command -v exa >/dev/null # in case stuff isn't installed
+then
+  alias find=fd
+  alias l=' exa -l'
+  alias ls=' exa'
+  alias tree=' exa -lT'
+  alias grep='rg --color=auto'
+fi
+local less=`command -v less`
 alias less="$less -RFX"
 alias lesss="$less -Rr"
 
@@ -32,15 +38,8 @@ alias py='ptipython'
 alias activate="source $HOME/.py/bin/activate"
 
 # ssh
-alias athena="ssh $athena"
-alias athenax="ssh -Y $athena"
-alias web="mosh $web"
-alias mail="ssh $mail"
-alias vpn="ssh $vpn"
-alias rig="mosh $rig"
+alias web="ssh web"
+alias vpn="ssh vpn"
 
-alias tmail="mail -t bin/t"
-alias trig="rig bin/t"
-alias tcomm="rig bin/tcomm"
-alias tweb="web bin/t"
-alias tvpn="vpn -t bin/t"
+# misc
+alias muttweb="mutt -F ~/.mutt/web"

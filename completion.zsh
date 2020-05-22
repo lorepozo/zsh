@@ -73,9 +73,17 @@ zstyle ':completion:*'            use-cache  yes
 zstyle ':completion:*:complete:*' cache-path "$ZSH_CACHE"
 
 # host completion
-[[ -r ~/.ssh/config ]] && _ssh_config_hosts=(${${(s: :)${(ps:\t:)${${(@M)${(f)"$(<$HOME/.ssh/config)"}:#Host *}#Host }}}:#*[*?]*}) || _ssh_config_hosts=()
-[[ -r ~/.ssh/known_hosts ]] && _ssh_hosts=(${(R)${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[\|]*}%%\ *}%%,*}:#[0-9]*}) || _ssh_hosts=()
-hosts=(
+local _ssh_config_hosts
+if [[ -r ~/.ssh/config ]]
+then _ssh_config_hosts=(${${(s: :)${(ps:\t:)${${(@M)${(f)"$(<$HOME/.ssh/config)"}:#Host *}#Host }}}:#*[*?]*})
+else _ssh_config_hosts=()
+fi
+local _ssh_hosts
+if [[ -r ~/.ssh/known_hosts ]]
+then _ssh_hosts=(${(R)${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[\|]*}%%\ *}%%,*}:#[0-9]*})
+else _ssh_hosts=()
+fi
+local hosts=(
     $(hostname)
     $_ssh_config_hosts[@]
     $_ssh_hosts[@]
