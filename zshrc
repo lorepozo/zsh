@@ -20,6 +20,9 @@ sources+="$ZSH_CONFIG/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 systemFile=`uname -s | tr "[:upper:]" "[:lower:]"`
 sources+="$ZSH_CONFIG/$systemFile.zsh"
 
+# Preserve ssh-agent
+sources+="$ZSH_CONFIG/ssh-agent-preserve.zsh"
+
 # completion config needs to be after system config
 sources+="$ZSH_CONFIG/completion.zsh"
 
