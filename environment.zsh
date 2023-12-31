@@ -1,11 +1,5 @@
 # vi
-local nvim=`command -v nvim`
-if [ $? -eq 0 ] >/dev/null
-then
-  export EDITOR=$nvim
-else
-  export EDITOR=`command -v vim`
-fi
+export EDITOR=`command -v vim`
 
 # my bins
 export PATH=$HOME/bin:$PATH

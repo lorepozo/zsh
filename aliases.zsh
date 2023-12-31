@@ -10,7 +10,6 @@ else
 fi
 
 # git
-alias git=hub
 alias g=git
 alias lol='git lol'
 
@@ -28,6 +27,8 @@ then
   alias ls=' exa'
   alias tree=' exa -lT'
   alias grep='rg --color=auto'
+  alias cat='bat'
+  alias z=zellij
 fi
 local less=`command -v less`
 alias less="$less -RFX"
