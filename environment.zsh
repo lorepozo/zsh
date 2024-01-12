@@ -1,3 +1,4 @@
+export ls=$HOME/dev/lightspeed
 # vi
 export EDITOR=`command -v vim`
 

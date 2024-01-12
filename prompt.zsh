@@ -14,7 +14,11 @@ function myPrompt () {
     local date='[%B%F{green}%D{%a %H:%M}%f%b]'
 
     local venv
-    if [[ $VIRTUAL_ENV ]]; then
+    if [[ $IN_THERMITE_NIX_SHELL ]]; then
+      venv="(%F{3}nix%f) "
+    elif [[ $IN_NIX_SHELL ]]; then
+      venv="(%F{3}nix-plaid%f) "
+    elif [[ $VIRTUAL_ENV ]]; then
       venv="(%F{3}`basename $VIRTUAL_ENV`%f) "
     fi
 
@@ -30,7 +34,7 @@ function myPrompt () {
     # other cool ones: ∇△ ∴
     sign="%B$sign%b "
 
-    PS1="$fail$date$here $sign$venv"
+    PS1="$fail$date$here $venv$sign"
 }
 add-zsh-hook precmd myPrompt
 

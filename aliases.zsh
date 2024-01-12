@@ -20,12 +20,12 @@ alias ...=' cd ../..'
 alias ....=' cd ../../..'
 
 # basics
-if command -v exa >/dev/null # in case stuff isn't installed
+if command -v eza >/dev/null # in case stuff isn't installed
 then
   alias find=fd
-  alias l=' exa -l'
-  alias ls=' exa'
-  alias tree=' exa -lT'
+  alias l=' eza -l'
+  alias ls=' eza'
+  alias tree=' eza -lT'
   alias grep='rg --color=auto'
   alias cat='bat'
   alias z=zellij
