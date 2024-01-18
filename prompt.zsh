@@ -14,11 +14,7 @@ function myPrompt () {
     local date='[%B%F{green}%D{%a %H:%M}%f%b]'
 
     local venv
-    if [[ $IN_THERMITE_NIX_SHELL ]]; then
-      venv="(%F{3}nix%f) "
-    elif [[ $IN_NIX_SHELL ]]; then
-      venv="(%F{3}nix-plaid%f) "
-    elif [[ $VIRTUAL_ENV ]]; then
+    if [[ $VIRTUAL_ENV ]]; then
       venv="(%F{3}`basename $VIRTUAL_ENV`%f) "
     fi
 
